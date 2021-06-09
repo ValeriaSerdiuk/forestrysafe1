@@ -28,6 +28,14 @@ class AnimalViewSet(generics.ListAPIView):
         return animal.clients
 
 
+class FeederViewSet(generics.ListAPIView):
+    serializer_class = FeederSerializer
+
+    def get_queryset(self):
+        feeder = get_object_or_404(Feeder, pk=self.kwargs['pk'])
+        return feeder.clients
+
+
 class FeederCreateView(ListCreateAPIView):
     def get_permissions(self):
         if self.request.method == 'POST':
