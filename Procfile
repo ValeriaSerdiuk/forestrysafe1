@@ -1,0 +1,1 @@
+web: gunicorn forestrysafe.wsgi --log-file -
